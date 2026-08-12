@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Movie Ticket Booking</title>
+</head>
+
+<body>
+
+    <h1>Online Movie Ticket Booking System</h1>
+
+    <script>
+
+        console.log("1. Checking Seat Availability...");
+
+        let seatsAvailable = true; //initially seats avl 
+
+        let booking = new Promise(function(resolve, reject) {
+            // we are creating a promise and storing it inside the variable booking 
+            // resolve means - workd was successful 
+            // reject - work failed 
+
+            setTimeout(function() {
+                // it means wait for some time, then execute this function 
+
+                if (seatsAvailable) {
+
+                    resolve("2. Seats are Available");
+
+                } else {
+
+                    reject("No Seats Available");
+
+                }
+
+            }, 2000); // it closes the setTimeOut()
+
+        });
+        booking
+
+            .then(function(message) { // it means if the promise is successful execute this function 
+
+                console.log(message); // it prints the message 
+
+                return "3. Payment Processed Successfully";
+
+            })
+
+            .then(function(message) {
+
+                console.log(message);
+
+                return "4. Booking Confirmed Successfully";
+
+            })
+
+            .then(function(message) {
+
+                console.log(message);
+
+                return "5. Ticket Generated Successfully";
+
+            })
+            .catch(function(error) {
+
+                console.log("Error:", error);
+
+            });
+
+    </script>
+
+</body>
+</html>
